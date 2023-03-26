@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;900&display=swap");
+
+:root {
+  min-width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow: hidden;
+  background-color: #0d1321ff;
+  cursor: url("./assets/mouseIcon.png"), auto;
+  font-family: "Roboto Slab", arial;
+}
+
+:where(.blue, .green, .purple, .orange, .logo, .link, .button):hover {
+  cursor: url("./assets/mouseIconHover.png"), auto;
+}
