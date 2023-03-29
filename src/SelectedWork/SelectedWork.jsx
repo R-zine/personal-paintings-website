@@ -93,7 +93,7 @@ export const SelectedWork = () => {
         setIsActive(true);
         if (helperCount <= Paintings.length - 1 && helperCount >= 0)
           setCount(helperCount);
-      }, 750);
+      }, 800);
     } else if (!isInitial) {
       setIsActive(false);
       gsap.to(rightImg.current, {
@@ -108,15 +108,18 @@ export const SelectedWork = () => {
       });
 
       setTimeout(() => {
-        gsap.set(rightImg.current, {
-          opacity: 0,
-          transform: "translateX(100%)",
-        });
-        gsap.set(currentImg.current, {
-          opacity: 1,
-          transform: "translateX(0)",
-          duration: 0,
-        });
+        const replaceTL = gsap.timeline();
+        replaceTL
+          .set(currentImg.current, {
+            opacity: 1,
+            transform: "translateX(0)",
+            duration: 0,
+          })
+          .set(rightImg.current, {
+            opacity: 0,
+            transform: "translateX(100%)",
+          });
+
         setIsActive(true);
         if (helperCount <= Paintings.length - 1 && helperCount >= 0)
           setCount(helperCount);
@@ -137,7 +140,7 @@ export const SelectedWork = () => {
         <Button
           className="button"
           left
-          onClick={() => isActive && handleClick(1)}
+          onMouseDown={() => isActive && handleClick(1)}
         >
           {Array(8)
             .fill("")
@@ -181,7 +184,10 @@ export const SelectedWork = () => {
             }}
           />
         </PaintingContainer>
-        <Button onClick={() => isActive && handleClick(-1)}>
+        <Button
+          className="button"
+          onMouseDown={() => isActive && handleClick(-1)}
+        >
           {Array(8)
             .fill("")
             .map((e, i) => (

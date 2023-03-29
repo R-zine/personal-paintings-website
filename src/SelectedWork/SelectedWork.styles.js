@@ -57,6 +57,7 @@ export const Button = styled.div`
   transition: 500ms;
   z-index: 100;
   opacity: 0;
+  pointer-events: all;
   &:hover {
     filter: grayscale(0);
     gap: 0.3vh;
