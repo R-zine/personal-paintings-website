@@ -204,7 +204,7 @@ export const Header = () => {
                 Thank you for your interest in my paintings! Due to the high
                 variance in shipping cost depending on your location and the
                 different paintings' sizes, I'd like to have a short chat with
-                you to discuss the best way for you to purchase and receice your
+                you to discuss the best way for you to purchase and receive your
                 order.
               </PrimaryText>
               <FinishOrderDiv>
