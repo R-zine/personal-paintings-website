@@ -24,8 +24,6 @@ export const SelectedWork = () => {
   const rightImg = useRef(null);
   const detailsRef = useRef(null);
 
-  console.log(innerContRef);
-
   const handleClick = (direction) => {
     if (direction !== currentDirection) setCurrentDirection(direction);
     if (count === 0 && direction === -1) {
