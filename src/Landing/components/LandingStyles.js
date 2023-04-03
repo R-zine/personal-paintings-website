@@ -27,6 +27,7 @@ export const TextCont = {
   height: "4%",
   textTransform: "uppercase",
   fontWeight: 600,
+  fontSize: "0.6vw",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",

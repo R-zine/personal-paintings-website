@@ -105,7 +105,8 @@ const MenuItem = ({ color }) => {
             left: menuObj.menu[currentlyClicked].x,
             zIndex: 30,
           })
-          .set(imgRef.current, { display: "hidden", pointerEvents: "none" });
+          .set(imgRef.current, { display: "hidden", pointerEvents: "none" })
+          .set(contRef.current, { zIndex: 1500 });
         tl1.play();
       }
       if (!currentlyClicked) {
@@ -124,7 +125,8 @@ const MenuItem = ({ color }) => {
           })
           .set(imgRef.current, { outlineWidth: "4px" })
           .to(textContRef.current, { width: "25%", ease: customEase })
-          .to(textContRef.current, { height: "4%", ease: customEase });
+          .to(textContRef.current, { height: "4%", ease: customEase })
+          .set(contRef.current, { zIndex: 1 });
 
         tl2.play();
       }

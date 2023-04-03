@@ -8,6 +8,7 @@ const FooterContainer = styled.footer`
   color: white;
   text-align: center;
   font-weight: 200;
+  font-size: 0.7vw;
   &:before {
     content: "";
     width: 40vw;

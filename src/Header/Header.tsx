@@ -24,6 +24,7 @@ import {
   Input,
   SendButton,
   CloseButtonText,
+  Title,
 } from "./Header.styles";
 import { colors } from "../global/styles/color";
 import { useDispatch, useSelector } from "react-redux";
@@ -96,7 +97,7 @@ export const Header = () => {
             ) : null
           )}
         </Logo>
-        <div>Ivan Radev - Traditional Painter</div>
+        <Title>Ivan Radev - Traditional Painter</Title>
         {cart.length > 0 && (
           <Cart className="button" onClick={() => setIsCart(true)}>
             <Badge>{cart.length}</Badge>

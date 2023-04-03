@@ -20,14 +20,18 @@ export const HeaderContainer = styled.header`
     height: 2px;
     background-color: white;
     position: fixed;
-    top: calc(1vh + 55px);
+    top: calc(1vh + 2vw);
     border-radius: 4px;
   }
 `;
 
+export const Title = styled.div`
+  font-size: 1.5vw;
+`;
+
 export const Logo = styled.div`
-  height: 40px;
-  width: 40px;
+  height: 1.5vw;
+  width: 1.5vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
