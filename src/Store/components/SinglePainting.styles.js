@@ -41,7 +41,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 95%;
-  max-height: 85%;
+  max-height: 50%;
   object-fit: scale-down;
 `;
 
@@ -113,9 +113,9 @@ export const DynamicContainer = styled.div`
 export const Curtain = styled.div`
   position: fixed;
   left: 7.5vw;
-  top: 7vh;
+  top: 6vh;
   width: 85vw;
-  height: 86vh;
+  height: 87vh;
   background-color: ${colors.darkBackground};
 `;
 

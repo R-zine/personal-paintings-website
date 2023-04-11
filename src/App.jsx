@@ -77,7 +77,7 @@ function App() {
             border: `2px solid ${colors.darkBackground}`,
             width: `${followSize}vh`,
             height: `${followSize}vh`,
-            zIndex: 25,
+            zIndex: 1400,
             transition: "top 150ms, left 150ms",
             pointerEvents: "none",
           }}

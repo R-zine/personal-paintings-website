@@ -1,13 +1,14 @@
 import React from "react";
 import { useGetPaintingsQuery } from "../app/store/query";
 import SinglePainting from "./components/SinglePainting";
-import { Container, InnerContainer } from "./Store.styles";
+import { BottomFade, Container, InnerContainer, TopFade } from "./Store.styles";
 
 export const Store = () => {
   const { data } = useGetPaintingsQuery();
 
   return (
     <Container>
+      <TopFade />
       <InnerContainer>
         {data &&
           data.map((p) => (
@@ -26,6 +27,7 @@ export const Store = () => {
             />
           ))}
       </InnerContainer>
+      <BottomFade />
     </Container>
   );
 };

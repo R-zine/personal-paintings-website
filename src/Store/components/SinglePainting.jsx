@@ -35,21 +35,32 @@ const SinglePainting = ({
 
   const ref = useRef(null);
   const dynamicRef = useRef(null);
+  const infoRef = useRef(null);
 
   const handleSmallClick = () => {
-    const pos = ref.current.getBoundingClientRect();
-    setCurrentPos({ left: pos.left, top: pos.top });
-    setIsTransition(true);
-    setIsClicked(true);
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest",
+    });
+    setTimeout(() => {
+      const pos = ref.current.getBoundingClientRect();
+      setCurrentPos({ left: pos.left, top: pos.top });
+      setIsTransition(true);
+      setIsClicked(true);
+    }, 700);
   };
 
   const handleClose = () => {
-    gsap.to(dynamicRef.current, {
-      left: currentPos.left,
-      top: currentPos.top,
-      width: 500,
-      height: 600,
-    });
+    const closeTL = gsap.timeline();
+    closeTL
+      .to(infoRef.current, { opacity: 0, duration: 0.2 })
+      .to(dynamicRef.current, {
+        left: currentPos.left,
+        top: currentPos.top,
+        width: 500,
+        height: 600,
+      });
     setTimeout(() => setIsTransition(false), 700);
     setTimeout(() => setIsClicked(false), 1500);
   };
@@ -79,13 +90,16 @@ const SinglePainting = ({
       tl.set(dynamicRef.current, {
         left: currentPos.left,
         top: currentPos.top,
-      }).to(dynamicRef.current, {
-        delay: 0.5,
-        left: "7.5vw",
-        top: "7vh",
-        width: "80vw",
-        height: "80vh",
-      });
+      })
+        .to(infoRef.current, { opacity: 0, duration: 0.2 })
+        .to(dynamicRef.current, {
+          delay: 0.5,
+          left: "7.5vw",
+          top: "7vh",
+          width: "80vw",
+          height: "80vh",
+        })
+        .to(infoRef.current, { opacity: 1, duration: 0.2, delay: 0.4 });
 
     tl.play();
   }, [isClicked, dynamicRef]);
@@ -152,7 +166,7 @@ const SinglePainting = ({
           >
             <Image src={image} />
 
-            <Info>
+            <Info ref={infoRef}>
               <Header>
                 <StaticText>Title: </StaticText>
                 <DynamicText>{title}</DynamicText>
