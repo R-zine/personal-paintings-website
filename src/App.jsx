@@ -43,7 +43,7 @@ function App() {
           y: mousePos.y + (Math.random() - 0.5) * offset,
         },
       });
-      setOffset(150);
+
       setDebounce(false);
       setTimeout(() => setDebounce(true), 100);
     }
@@ -100,26 +100,27 @@ function App() {
         setOffset(1000);
       }}
       onMouseUp={() => {
+        setTimeout(() => setOffset(150), 20);
         setDebounce(true);
-        setOffset(150);
       }}
     >
-      {Object.keys(colors).map((color, i) => (
-        <div
-          key={i}
-          style={{
-            position: "fixed",
-            top: pos[color].x,
-            left: pos[color].y,
-            backgroundColor: colors[color],
-            border: `2px solid ${colors.darkBackground}`,
-            width: `${followSize}vh`,
-            height: `${followSize}vh`,
-            zIndex: 3500,
-            pointerEvents: "none",
-          }}
-        />
-      ))}
+      {pos.blue &&
+        Object.keys(colors).map((color, i) => (
+          <div
+            key={i}
+            style={{
+              position: "fixed",
+              top: pos[color].x,
+              left: pos[color].y,
+              backgroundColor: colors[color],
+              border: `2px solid ${colors.darkBackground}`,
+              width: `${followSize}vh`,
+              height: `${followSize}vh`,
+              zIndex: 3500,
+              pointerEvents: "none",
+            }}
+          />
+        ))}
 
       <Header />
       <Landing />
