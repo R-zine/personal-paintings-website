@@ -46,7 +46,7 @@ function App() {
       setDebounce(false);
       setTimeout(() => setDebounce(true), 100);
     }
-  }, [mousePos]);
+  }, [mousePos, offset]);
 
   const currentPage = useSelector((state) => state.landing.value);
 
@@ -94,8 +94,14 @@ function App() {
           x: e.nativeEvent.clientY,
         })
       }
-      onMouseDown={() => setOffset(1000)}
-      onMouseUp={() => setOffset(150)}
+      onMouseDown={() => {
+        setDebounce(true);
+        setOffset(1000);
+      }}
+      onMouseUp={() => {
+        setDebounce(true);
+        setOffset(150);
+      }}
     >
       {Object.keys(colors).map((color, i) => (
         <div
@@ -108,7 +114,7 @@ function App() {
             border: `2px solid ${colors.darkBackground}`,
             width: `${followSize}vh`,
             height: `${followSize}vh`,
-            zIndex: 1400,
+            zIndex: 3500,
             pointerEvents: "none",
           }}
         />
