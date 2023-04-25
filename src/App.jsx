@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTransition, animated } from "react-spring";
 import { useSelector } from "react-redux";
 import "./App.css";
@@ -15,7 +15,38 @@ const followSize = 2;
 
 function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [pos, setPos] = useState({ x: 0, y: 0 });
   const [offset, setOffset] = useState(150);
+  const [debounce, setDebounce] = useState(true);
+
+  useEffect(() => {
+    if (debounce) {
+      setPos({
+        darkBackground: {
+          x: mousePos.x + (Math.random() - 0.5) * offset,
+          y: mousePos.y + (Math.random() - 0.5) * offset,
+        },
+        blue: {
+          x: mousePos.x + (Math.random() - 0.5) * offset,
+          y: mousePos.y + (Math.random() - 0.5) * offset,
+        },
+        green: {
+          x: mousePos.x + (Math.random() - 0.5) * offset,
+          y: mousePos.y + (Math.random() - 0.5) * offset,
+        },
+        orange: {
+          x: mousePos.x + (Math.random() - 0.5) * offset,
+          y: mousePos.y + (Math.random() - 0.5) * offset,
+        },
+        purple: {
+          x: mousePos.x + (Math.random() - 0.5) * offset,
+          y: mousePos.y + (Math.random() - 0.5) * offset,
+        },
+      });
+      setDebounce(false);
+      setTimeout(() => setDebounce(true), 100);
+    }
+  }, [mousePos]);
 
   const currentPage = useSelector((state) => state.landing.value);
 
@@ -71,14 +102,13 @@ function App() {
           key={i}
           style={{
             position: "fixed",
-            top: mousePos.x + (Math.random() - 0.5) * offset,
-            left: mousePos.y + (Math.random() - 0.5) * offset,
+            top: pos[color].x,
+            left: pos[color].y,
             backgroundColor: colors[color],
             border: `2px solid ${colors.darkBackground}`,
             width: `${followSize}vh`,
             height: `${followSize}vh`,
             zIndex: 1400,
-            transition: "top 150ms, left 150ms",
             pointerEvents: "none",
           }}
         />
