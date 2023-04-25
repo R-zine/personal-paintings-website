@@ -43,6 +43,7 @@ function App() {
           y: mousePos.y + (Math.random() - 0.5) * offset,
         },
       });
+      setOffset(150);
       setDebounce(false);
       setTimeout(() => setDebounce(true), 100);
     }
