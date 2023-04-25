@@ -13,10 +13,11 @@ export const Container = styled.div`
 export const Title = styled.div`
   position: fixed;
   top: 4vh;
-  left: 82vw;
+  left: 10vw;
   color: white;
   text-shadow: 2px 2px 4px #0f0f0f55;
   font-size: 1.5vw;
+  z-index: 2000;
   opacity: 0;
 `;
 

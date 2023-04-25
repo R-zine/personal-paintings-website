@@ -82,8 +82,8 @@ export const Curtain = styled.div`
 
 export const CartContainer = styled.div`
   position: fixed;
-  width: 85vw;
-  height: 92.2vh;
+  width: 81vw;
+  height: 88.2vh;
   top: 4.7vh;
   left: 7.5vw;
   border: 2px solid white;
@@ -94,6 +94,7 @@ export const CartContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  padding: 2vh 2vw;
 `;
 
 export const CloseButton = styled.div`
@@ -159,7 +160,7 @@ export const MoreDetailsButton = styled.div`
   color: ${colors.blue};
   width: 70%;
   height: 90%;
-  font-size: 120%;
+  font-size: 0.8vw;
   display: flex;
   align-items: center;
   text-align: center;
@@ -177,7 +178,7 @@ export const RemoveButton = styled.div`
   font-weight: 600;
   width: 70%;
   height: 90%;
-  font-size: 120%;
+  font-size: 0.8vw;
   display: flex;
   align-items: center;
   text-align: center;

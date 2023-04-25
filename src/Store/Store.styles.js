@@ -26,6 +26,17 @@ export const BottomFade = styled.div`
   top: 100%;
 `;
 
+export const Title = styled.div`
+  position: fixed;
+  top: 4vh;
+  left: 10vw;
+  color: white;
+  text-shadow: 2px 2px 4px #0f0f0f55;
+  font-size: 1.5vw;
+  opacity: 1;
+  z-index: 1501;
+`;
+
 export const InnerContainer = styled.div`
   padding-top: 2vh;
   display: grid;
