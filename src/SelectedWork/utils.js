@@ -41,7 +41,12 @@ export class Painting {
 
 export const Paintings = [
   new Painting(PurplePainting, "Vihren in Summer", "Oil on Paper", 2014),
-  new Painting(GreenPainting, "Rodope in the Mist", "Oil on Paper", 2015),
-  new Painting(BluePainting, "The Beautiful Rodope", "Oil on Paper", 2015),
-  new Painting(OrangePainting, "The Colorful Balkans", "Oil on Paper", 2014),
+  new Painting(
+    GreenPainting,
+    "Rodope in the Mist (SOLD)",
+    "Oil on Paper",
+    2015
+  ),
+  new Painting(BluePainting, "The Beautiful Rhodope", "Oil on Paper", 2015),
+  new Painting(OrangePainting, "The Colorful Balkan", "Oil on Paper", 2014),
 ];

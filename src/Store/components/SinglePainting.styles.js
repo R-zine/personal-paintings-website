@@ -134,6 +134,7 @@ export const CloseButton = styled.div`
   transition: 500ms;
   z-index: 1100;
   color: white;
+  font-size: 1.5vh;
   &:hover {
     background-color: white;
     color: ${colors.darkBackground};
