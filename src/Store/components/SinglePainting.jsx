@@ -95,7 +95,7 @@ const SinglePainting = ({
         .to(dynamicRef.current, {
           delay: 0.5,
           left: "7.5vw",
-          top: "7vh",
+          top: "8vh",
           width: "80vw",
           height: "80vh",
         })
