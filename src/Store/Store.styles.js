@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { colors } from "../global/styles/color";
 
 export const Container = styled.div`
   position: fixed;
@@ -28,7 +27,7 @@ export const BottomFade = styled.div`
 
 export const Title = styled.div`
   position: fixed;
-  top: 4vh;
+  top: 3vh;
   left: 10vw;
   color: white;
   text-shadow: 2px 2px 4px #0f0f0f55;
@@ -39,6 +38,7 @@ export const Title = styled.div`
 
 export const InnerContainer = styled.div`
   padding-top: 2vh;
+  padding-bottom: 2vh;
   display: grid;
   width: 100%;
   height: 100%;

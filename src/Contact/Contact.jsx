@@ -8,8 +8,9 @@ import {
   SocialLink,
   Input,
   Textarea,
+  SendButton,
 } from "./Contact.styles";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { colors } from "../global/styles/color";
 import dA from "./icons/da.svg";
@@ -17,12 +18,63 @@ import twitter from "./icons/twitter.svg";
 import pinterest from "./icons/pint.svg";
 import insta from "./icons/insta.svg";
 import reddit from "./icons/reddit.svg";
+import emailjs from "@emailjs/browser";
+
+emailjs.init("D0ctY-SwJYajvmMel");
 
 export const Contact = () => {
+  const [buttonText, setButtonText] = useState("Send");
+
   const titleRef = useRef(null);
   const innerContRef = useRef(null);
   const socialsRef = useRef(null);
   const contactFormRef = useRef(null);
+
+  const emailRef = useRef(null);
+  const subjectRef = useRef(null);
+  const nameRef = useRef(null);
+  const bodyRef = useRef(null);
+
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
+  const handleFormSend = () => {
+    if (buttonText !== "Send") return;
+    if (
+      subjectRef.current.value &&
+      nameRef.current.value &&
+      validateEmail(emailRef.current.value) &&
+      bodyRef.current.value
+    ) {
+      emailjs
+        .send("service_0lnz0ab", "template_dw76dor", {
+          subject: subjectRef.current.value,
+          name: nameRef.current.value,
+          email: emailRef.current.value,
+          message: bodyRef.current.value,
+        })
+        .then(
+          function (response) {
+            setButtonText("Message sent!");
+          },
+          function (error) {
+            setButtonText("Sending failed");
+          }
+        );
+    } else {
+      setButtonText("All fields are required");
+    }
+  };
+
+  useEffect(() => {
+    if (buttonText !== "Send" && buttonText !== "Message sent!")
+      setTimeout(() => setButtonText("Send"), 5000);
+  }, [buttonText]);
 
   const entryTl = gsap.timeline();
 
@@ -37,6 +89,8 @@ export const Contact = () => {
         stagger: 0.3,
       });
   }, []);
+
+  const handleSocialButtonClick = (url) => window.open(url, "_blank");
 
   return (
     <Container>
@@ -56,31 +110,58 @@ export const Contact = () => {
           >
             Find me on social media:
           </div>
-          <SocialLink className="button">
+          <SocialLink
+            className="button"
+            onClick={() =>
+              handleSocialButtonClick("https://www.deviantart.com/ivanradev")
+            }
+          >
             <IconButton>
               <img src={dA} />
             </IconButton>
             <span>deviantArt</span>
           </SocialLink>
-          <SocialLink className="button">
+          <SocialLink
+            className="button"
+            onClick={() =>
+              handleSocialButtonClick("https://twitter.com/IvanMusings")
+            }
+          >
             <IconButton>
               <img src={twitter} />
             </IconButton>
             <span>twitter</span>
           </SocialLink>
-          <SocialLink className="button">
+          <SocialLink
+            className="button"
+            onClick={() =>
+              handleSocialButtonClick("https://www.instagram.com/radev2559/")
+            }
+          >
             <IconButton>
               <img src={insta} />
             </IconButton>
             <span>instagram</span>
           </SocialLink>
-          <SocialLink className="button">
+          <SocialLink
+            className="button"
+            onClick={() =>
+              handleSocialButtonClick("https://www.pinterest.com/ivanradev/")
+            }
+          >
             <IconButton>
               <img src={pinterest} />
             </IconButton>
             <span>pinterest</span>
           </SocialLink>
-          <SocialLink className="button">
+          <SocialLink
+            className="button"
+            onClick={() =>
+              handleSocialButtonClick(
+                "https://www.reddit.com/user/IvanRadevHorror"
+              )
+            }
+          >
             <IconButton>
               <img src={reddit} />
             </IconButton>
@@ -110,10 +191,13 @@ export const Contact = () => {
           >
             Or leave me a message:
           </div>
-          <Input placeholder="Email" color={colors.blue} />
-          <Input placeholder="Name" color={colors.purple} />
-          <Input placeholder="Subject" color={colors.green} />
-          <Textarea placeholder="Message" color={colors.orange} />
+          <Input placeholder="Email" color={colors.blue} ref={emailRef} />
+          <Input placeholder="Name" color={colors.purple} ref={nameRef} />
+          <Input placeholder="Subject" color={colors.green} ref={subjectRef} />
+          <Textarea placeholder="Message" color={colors.orange} ref={bodyRef} />
+          <SendButton className="button" onClick={() => handleFormSend()}>
+            {buttonText}
+          </SendButton>
         </ContactForm>
       </InnerContainer>
     </Container>

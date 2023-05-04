@@ -1,4 +1,5 @@
-import React from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import { useGetPaintingsQuery } from "../app/store/query";
 import SinglePainting from "./components/SinglePainting";
 import {
@@ -12,8 +13,14 @@ import {
 export const Store = () => {
   const { data } = useGetPaintingsQuery();
 
+  const ref = useRef(null);
+
+  useEffect(() => {
+    gsap.to(ref.current, { opacity: 1, delay: 2 });
+  }, []);
+
   return (
-    <>
+    <div ref={ref} style={{ opacity: 0 }}>
       <Title>Store</Title>
       <Container>
         <TopFade />
@@ -35,8 +42,10 @@ export const Store = () => {
               />
             ))}
         </InnerContainer>
-        <BottomFade />
+        {
+          //    <BottomFade />
+        }
       </Container>
-    </>
+    </div>
   );
 };

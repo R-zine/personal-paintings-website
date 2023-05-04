@@ -121,7 +121,7 @@ export const Input = styled.input`
 
 export const Textarea = styled.textarea`
   width: 50%;
-  height: 14vh;
+  height: 9vh;
   background-color: ${(props) => props.color};
   border-color: ${colors.orange};
   border-radius: 5px;
@@ -141,5 +141,23 @@ export const Textarea = styled.textarea`
     &::placeholder {
       color: white;
     }
+  }
+`;
+
+export const SendButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${colors.blue};
+  width: 30%;
+  height: 3vh;
+  color: ${colors.darkBackground};
+  border: 2px solid ${colors.orange};
+  border-radius: 5px;
+  transition: 700ms;
+  opacity: 0;
+  &:hover {
+    color: ${colors.blue};
+    background-color: ${colors.darkBackground};
   }
 `;

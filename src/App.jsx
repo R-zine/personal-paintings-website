@@ -79,7 +79,7 @@ function App() {
   });
 
   const storeTransition = useTransition(currentPage === "purple", {
-    from: { opacity: 1, zIndex: 30, position: "fixed" },
+    from: { opacity: 0, zIndex: 30, position: "fixed" },
     enter: { opacity: 1, zIndex: 30, position: "fixed" },
     leave: { opacity: 0, zIndex: 30, position: "fixed" },
     config: {
