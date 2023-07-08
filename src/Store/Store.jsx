@@ -2,13 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useGetPaintingsQuery } from "../app/store/query";
 import SinglePainting from "./components/SinglePainting";
-import {
-  BottomFade,
-  Container,
-  InnerContainer,
-  Title,
-  TopFade,
-} from "./Store.styles";
+import { Container, InnerContainer, Title, TopFade } from "./Store.styles";
 
 export const Store = () => {
   const { data } = useGetPaintingsQuery();
@@ -42,9 +36,6 @@ export const Store = () => {
               />
             ))}
         </InnerContainer>
-        {
-          //    <BottomFade />
-        }
       </Container>
     </div>
   );

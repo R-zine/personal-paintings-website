@@ -40,6 +40,29 @@ export const InnerContainer = styled.div`
   .Typewriter {
     margin-left: 20vw;
     width: 50vw !important;
+    height: 70vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding-right: 1vw;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: ${colors.green};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: ${colors.darkBackground};
+      border: 1px solid ${colors.green};
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: ${colors.purple};
+    }
 
     br {
       margin-top: 1vh;
@@ -56,12 +79,11 @@ export const PhotoContainer = styled.div`
   margin-left: 3vw;
 `;
 
-export const GrayScaleImg = styled.img`
+export const OriginalImg = styled.img`
   width: ${0.57 * photoScaleModifier}vh;
   height: ${photoScaleModifier}vh;
   position: fixed;
   top: 15vh;
-  filter: grayscale(100%) opacity(1);
   background-color: ${colors.green};
 `;
 

@@ -74,6 +74,7 @@ export const Details = styled.div`
   min-width: 82.4vw;
   color: white;
   text-shadow: 2px 2px 4px #0f0f0f55;
+  font-size: 0.8vw;
   & > div {
     opacity: 0;
   }

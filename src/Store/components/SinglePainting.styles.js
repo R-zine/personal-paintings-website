@@ -115,7 +115,7 @@ export const Curtain = styled.div`
   left: 7.5vw;
   top: 6vh;
   width: 85vw;
-  height: 87vh;
+  height: 89vh;
   background-color: ${colors.darkBackground};
 `;
 

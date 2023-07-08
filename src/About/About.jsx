@@ -4,12 +4,13 @@ import TypewriterComponent from "typewriter-effect";
 import {
   ColorImg,
   Container,
-  GrayScaleImg,
+  OriginalImg,
   InnerContainer,
   PhotoContainer,
   Title,
 } from "./About.styles";
 import photo from "../assets/photo.jpg";
+import photoAI from "../assets/photoAI.jpg";
 
 export const About = () => {
   const photoRef = useRef(null);
@@ -66,8 +67,8 @@ export const About = () => {
             })
           }
         >
-          <GrayScaleImg src={photo} />
-          <ColorImg ref={photoRef} src={photo} />
+          <OriginalImg src={photo} />
+          <ColorImg ref={photoRef} src={photoAI} />
         </PhotoContainer>
 
         <TypewriterComponent

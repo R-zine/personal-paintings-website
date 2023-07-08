@@ -16,15 +16,6 @@ export const TopFade = styled.div`
   z-index: 1500;
 `;
 
-export const BottomFade = styled.div`
-  position: absolute;
-  background: linear-gradient(0deg, #0d1321ff, #0d132100);
-  height: 2vh;
-  width: 100%;
-  z-index: 1500;
-  top: 100%;
-`;
-
 export const Title = styled.div`
   position: fixed;
   top: 3vh;
