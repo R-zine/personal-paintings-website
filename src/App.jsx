@@ -10,10 +10,13 @@ import { SelectedWork } from "./SelectedWork/SelectedWork";
 import { Contact } from "./Contact";
 import { About } from "./About";
 import { Store } from "./Store/";
+import { Loader } from "./Loader/Loader";
 
 const followSize = 2;
 
 function App() {
+  const [isInitial, setIsInitial] = useState(true);
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [offset, setOffset] = useState(150);
@@ -88,80 +91,83 @@ function App() {
   });
 
   return (
-    <div
-      onMouseMove={(e) =>
-        setMousePos({
-          y: e.nativeEvent.clientX,
-          x: e.nativeEvent.clientY,
-        })
-      }
-      onMouseDown={() => {
-        setDebounce(true);
-        setOffset(1000);
-      }}
-      onMouseUp={() => {
-        setTimeout(() => setOffset(150), 20);
-        setDebounce(true);
-      }}
-    >
-      {pos.blue &&
-        Object.keys(colors).map((color, i) => (
-          <div
-            key={i}
-            style={{
-              position: "fixed",
-              top: pos[color].x,
-              left: pos[color].y,
-              backgroundColor: colors[color],
-              border: `2px solid ${colors.darkBackground}`,
-              width: `${followSize}vh`,
-              height: `${followSize}vh`,
-              zIndex: 3500,
-              pointerEvents: "none",
-            }}
-          />
-        ))}
+    <>
+      <Loader isReady />
+      <div
+        onMouseMove={(e) =>
+          setMousePos({
+            y: e.nativeEvent.clientX,
+            x: e.nativeEvent.clientY,
+          })
+        }
+        onMouseDown={() => {
+          setDebounce(true);
+          setOffset(1000);
+        }}
+        onMouseUp={() => {
+          setTimeout(() => setOffset(150), 20);
+          setDebounce(true);
+        }}
+      >
+        {pos.blue &&
+          Object.keys(colors).map((color, i) => (
+            <div
+              key={i}
+              style={{
+                position: "fixed",
+                top: pos[color].x,
+                left: pos[color].y,
+                backgroundColor: colors[color],
+                border: `2px solid ${colors.darkBackground}`,
+                width: `${followSize}vh`,
+                height: `${followSize}vh`,
+                zIndex: 3500,
+                pointerEvents: "none",
+              }}
+            />
+          ))}
 
-      <Header />
-      <Landing />
-      {selectedTransition((style, item) =>
-        item ? (
-          <animated.div style={style}>
-            <SelectedWork />
-          </animated.div>
-        ) : (
-          ""
-        )
-      )}
-      {contactTransition((style, item) =>
-        item ? (
-          <animated.div style={style}>
-            <Contact />
-          </animated.div>
-        ) : (
-          ""
-        )
-      )}
-      {aboutTransition((style, item) =>
-        item ? (
-          <animated.div style={style}>
-            <About />
-          </animated.div>
-        ) : (
-          ""
-        )
-      )}
-      {storeTransition((style, item) =>
-        item ? (
-          <animated.div style={style}>
-            <Store />
-          </animated.div>
-        ) : (
-          ""
-        )
-      )}
-      <Footer />
-    </div>
+        <Header />
+        <Landing />
+        {selectedTransition((style, item) =>
+          item ? (
+            <animated.div style={style}>
+              <SelectedWork />
+            </animated.div>
+          ) : (
+            ""
+          )
+        )}
+        {contactTransition((style, item) =>
+          item ? (
+            <animated.div style={style}>
+              <Contact />
+            </animated.div>
+          ) : (
+            ""
+          )
+        )}
+        {aboutTransition((style, item) =>
+          item ? (
+            <animated.div style={style}>
+              <About />
+            </animated.div>
+          ) : (
+            ""
+          )
+        )}
+        {storeTransition((style, item) =>
+          item ? (
+            <animated.div style={style}>
+              <Store />
+            </animated.div>
+          ) : (
+            ""
+          )
+        )}
+        <Footer />
+      </div>
+    </>
   );
 }
 

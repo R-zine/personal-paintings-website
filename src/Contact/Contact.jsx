@@ -106,6 +106,7 @@ export const Contact = () => {
               borderRadius: 5,
               marginBottom: "2%",
               opacity: 0,
+              fontSize: "1.5vmin",
             }}
           >
             Find me on social media:
@@ -187,6 +188,7 @@ export const Contact = () => {
               backgroundColor: colors.orange,
               fontWeight: 700,
               opacity: 0,
+              fontSize: "1.5vmin",
             }}
           >
             Or leave me a message:

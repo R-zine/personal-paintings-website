@@ -1,9 +1,9 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { store } from "./app/store/store";
 import { Provider } from "react-redux";
 import "./index.css";
+import { Suspense, StrictMode, lazy } from "react";
+import { Loader } from "./Loader/Loader";
 
 const mobileAndTabletCheck = () => {
   let check = false;
@@ -26,10 +26,14 @@ if (mobileAndTabletCheck())
     "It seems you are viewing the website on a mobile device. Please use your device in landscape mode for the best experience."
   );
 
+const App = lazy(() => import("./App.jsx"));
+
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  <StrictMode>
+    <Suspense fallback={<Loader />}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Suspense>
+  </StrictMode>
 );

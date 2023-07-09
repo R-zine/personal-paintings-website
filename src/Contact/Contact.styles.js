@@ -50,7 +50,7 @@ export const SocialLink = styled.div`
   align-items: center;
   justify-content: start;
   gap: 1vw;
-  width: 30%;
+  width: max(30%, 200px);
   border-radius: 5px;
   padding: 5px;
   transition: 700ms;
@@ -96,13 +96,14 @@ export const ContactForm = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 30%;
+  width: max(30%, 200px);
   height: 3vh;
   background-color: ${(props) => props.color};
   border-color: ${colors.orange};
   border-radius: 5px;
   transition: 700ms;
   color: ${colors.darkBackground};
+  font-size: 1.2vmin;
   font-weight: 700;
   text-indent: 5px;
   opacity: 0;
@@ -120,13 +121,14 @@ export const Input = styled.input`
 `;
 
 export const Textarea = styled.textarea`
-  width: 50%;
+  width: max(50%, 200px);
   height: 9vh;
   background-color: ${(props) => props.color};
   border-color: ${colors.orange};
   border-radius: 5px;
   transition: 700ms;
   color: ${colors.darkBackground};
+  font-size: 1.2vmin;
   font-weight: 700;
   text-indent: 5px;
   padding: 5px;
@@ -156,6 +158,7 @@ export const SendButton = styled.div`
   border-radius: 5px;
   transition: 700ms;
   opacity: 0;
+  font-size: 1.2vmin;
   &:hover {
     color: ${colors.blue};
     background-color: ${colors.darkBackground};
