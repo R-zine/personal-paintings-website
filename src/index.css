@@ -17,6 +17,10 @@
   font-family: "Roboto Slab", arial;
 }
 
+textarea {
+  font-family: "Roboto Slab", arial;
+}
+
 :where(.blue, .green, .purple, .orange, .logo, .link, .button):hover {
   cursor: url("./assets/mouseIconHover.png"), auto;
 }

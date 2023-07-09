@@ -159,6 +159,7 @@ export const SendButton = styled.div`
   transition: 700ms;
   opacity: 0;
   font-size: 1.2vmin;
+  font-weight: 700;
   &:hover {
     color: ${colors.blue};
     background-color: ${colors.darkBackground};
