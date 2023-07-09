@@ -48,7 +48,7 @@ export const Button = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(1fr, 4);
   position: fixed;
-  left: ${(props) => (props.left ? "10vw" : "87.1vw")};
+  left: ${(props) => (props.left ? "11vw" : "88.1vw")};
   width: 2vw;
   top: 46vh;
   height: 8vh;
