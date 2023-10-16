@@ -51,6 +51,7 @@ export const Header = () => {
 
   // @ts-ignore
   const cart = useSelector((state) => state.cart.value);
+  const currentlyClicked = useSelector((state) => state.landing.value);
 
   const cartTransition = useTransition(isCart, {
     from: { opacity: 0, zIndex: 1300, position: "fixed" },
@@ -81,7 +82,21 @@ export const Header = () => {
         <Logo
           className="logo"
           onClick={() => {
-            dispatch(onClickedStateChange(""));
+            if (currentlyClicked) {
+              const textEl = document.querySelectorAll(".textCont");
+
+              if (textEl)
+                textEl.forEach((el) => {
+                  el.style.color = "#00000000";
+                  el.style.textShadow = "none";
+
+                  setTimeout(() => {
+                    el.style.color = "white";
+                    el.style.textShadow = "2px 2px #0F0F0F55";
+                  }, 1300);
+                });
+              dispatch(onClickedStateChange(""));
+            }
           }}
         >
           {Object.keys(colors).map((c, i) =>

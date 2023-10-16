@@ -226,6 +226,7 @@ const MenuItem = ({ color }) => {
           }}
         />
         <div
+          className="textCont"
           ref={textContRef}
           // @ts-ignore
           style={{
@@ -235,6 +236,7 @@ const MenuItem = ({ color }) => {
         >
           {textTransition((style, item) =>
             item ? (
+              //@ts-ignore
               <animated.span style={style}>{menuObj.text}</animated.span>
             ) : (
               ""

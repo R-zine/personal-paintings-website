@@ -32,6 +32,7 @@ export const TextCont = {
   alignItems: "center",
   justifyContent: "center",
   padding: 5,
+  paddingBottom: "0.3vh",
   borderRadius: "0 0 5px 0",
   transition: "height 200ms",
   color: "white",

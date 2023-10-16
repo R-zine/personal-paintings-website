@@ -41,7 +41,7 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 95%;
-  max-height: 50%;
+  max-height: 55%;
   object-fit: scale-down;
 `;
 
